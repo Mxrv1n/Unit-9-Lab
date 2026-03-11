@@ -2,10 +2,41 @@
 Author: Marvin Perez
 Purpose: Match coins game lab 9.
 Date: 03/10/2026'''
-from coin import Coin
 from player import player
 
-coin1 = Coin()
-print(coin1.get_sideup())
+def main():
+    player1 = player("Player 1")
+    player2 = player("Player 2")
 
-player1 = player(name="Marvin")
+    print(f"{player1.get_name()} has {player1.get_wallet()} coins")
+    print(f"{player2.get_name()} has {player2.get_wallet()} coins")
+
+    play = input("\nDo you want to toss the coins? y/n")
+
+    while  play == "y":
+
+        player1.toss_coin()
+        player2.toss_coin()
+
+        print(f"\n{player1.get_name()} tossed {player1.get_coin_side()}")
+        print(f"{player2.get_name()} tossed {player2.get_coin_side()}")
+
+
+        if player1.get_coin_side() == player2.get_coin_side():
+            print(f"\nCoins match!\n{player1.get_name()} wins a coin and {player2.get_name()} loses a coin")
+            player1.win_coin()
+            player2.lose_coin()
+
+
+        else:
+            print(f"\nCoins don't match!\n{player2.get_name()} wins a coin and {player1.get_name()} loses a coin")
+            player2.win_coin()
+            player1.lose_coin()
+
+        print(f"\n{player1.get_name()} has {player1.get_wallet()} coins")
+        print(f"{player2.get_name()} has {player2.get_wallet()} coins")
+
+        play = input("Do you want to toss the coins? y/n")
+    
+    print(f"\n---Final Score---\n{player1.get_name()} has {player1.get_wallet()} coins\n{player2.get_name()} has {player2.get_wallet()} coins")
+main()
