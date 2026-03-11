@@ -8,6 +8,4 @@ from player import player
 coin1 = Coin()
 print(coin1.get_sideup())
 
-player = player(name="csa")
-#REMOVE LATER
-player.__printname__()
+player1 = player(name="Marvin")
