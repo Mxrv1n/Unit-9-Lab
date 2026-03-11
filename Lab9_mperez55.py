@@ -23,20 +23,28 @@ def main():
 
 
         if player1.get_coin_side() == player2.get_coin_side():
-            print(f"\nCoins match!\n{player1.get_name()} wins a coin and {player2.get_name()} loses a coin")
+            print(f"\nCoins match!\n{player1.get_name()} wins a coin")
             player1.win_coin()
             player2.lose_coin()
 
 
         else:
-            print(f"\nCoins don't match!\n{player2.get_name()} wins a coin and {player1.get_name()} loses a coin")
+            print(f"\nCoins don't match!\n{player2.get_name()} wins a coin")
             player2.win_coin()
             player1.lose_coin()
 
         print(f"\n{player1.get_name()} has {player1.get_wallet()} coins")
         print(f"{player2.get_name()} has {player2.get_wallet()} coins")
 
-        play = input("Do you want to toss the coins? y/n\n")
+        if player1.get_wallet() == 0:
+            print(f"\n{player1.get_name()} has run out of coins :(")
+            break
+        if player2.get_wallet() == 0:
+            print(f"\n{player2.get_name()} has run out of coins :(")
+            break
+
+
+        play = input("Do you want to toss the coins again? y/n\n")
     
     print(f"\n---Final Score---\n{player1.get_name()} has {player1.get_wallet()} coins\n{player2.get_name()} has {player2.get_wallet()} coins")
     if player1.get_wallet() == player2.get_wallet():
