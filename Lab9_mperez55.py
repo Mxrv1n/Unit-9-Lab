@@ -36,7 +36,13 @@ def main():
         print(f"\n{player1.get_name()} has {player1.get_wallet()} coins")
         print(f"{player2.get_name()} has {player2.get_wallet()} coins")
 
-        play = input("Do you want to toss the coins? y/n")
+        play = input("Do you want to toss the coins? y/n\n")
     
     print(f"\n---Final Score---\n{player1.get_name()} has {player1.get_wallet()} coins\n{player2.get_name()} has {player2.get_wallet()} coins")
+    if player1.get_wallet() == player2.get_wallet():
+        print("\nIts' a draw!")
+    elif player1.get_wallet() > player2.get_wallet():
+        print(f"\n{player1.get_name()} wins!")
+    else:
+        print(f"\n{player2.get_name()} wins!")
 main()
